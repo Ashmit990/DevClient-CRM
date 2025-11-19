@@ -1,7 +1,24 @@
 import React from 'react'
+import { ClustersTableHeader } from './ClustersTableHeader'
+import { ClustersRows } from './ClustersRows'
+import { clustersData } from '../../data/clustersData'
 
 export const ClustersTable = () => {
   return (
-    <div>ClustersTable</div>
+    <>
+        <div className='w-[100%] h-[50px]  mt-[27px] '>
+              <ClustersTableHeader/>
+    </div>
+
+        <div className='w-[100%] h-[50px]  mt-[10px] '>
+
+          {clustersData.map((elem,key)=>(
+             <ClustersRows key={key} val1={elem.clusterCode} val2={elem.clients} val3={elem.overdueFollowups} val4={elem.priority} val5={elem.lastAssignedTo}/>
+          ))}
+
+              
+    </div>
+    </>
+
   )
 }
