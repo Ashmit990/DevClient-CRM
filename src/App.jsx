@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ClusterLayout from "./layouts/ClusterLayout";
+import NotFoundPage from "./components/Errors/NotFoundPage";
 import React from 'react'
 import { RootLayout } from "./layouts/RootLayout";
 import { DashboardLayout } from "./layouts/DashboardLayout";
@@ -13,7 +14,8 @@ import { DashboardLayout } from "./layouts/DashboardLayout";
         element: <RootLayout/>,
         children: [
           {index: true, element: <DashboardLayout/>},
-          {path: 'clusters', element: <ClusterLayout/>}
+          {path: 'clusters', element: <ClusterLayout/>},
+          { path: '*', element: <NotFoundPage /> },
         ]
       }
     ]
