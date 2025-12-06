@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export const ClustersRows = ({ val1, val2, val3, val4, val5 }) => {
   return (
@@ -9,5 +9,5 @@ export const ClustersRows = ({ val1, val2, val3, val4, val5 }) => {
       <p>{val4}</p>
       <p>{val5}</p>
     </div>
-  )
-}
+  );
+};
