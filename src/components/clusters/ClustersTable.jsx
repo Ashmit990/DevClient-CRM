@@ -6,9 +6,9 @@ import { clustersData } from "../../data/clustersData";
 export const ClustersTable = () => {
   return (
     <>
-      <div className="w-[100%] h-[50px]  mt-[27px] ">
+      {/* <div className="w-[100%] h-[50px]  mt-[27px] ">
         <ClustersTableHeader col1='Cluster Code'col2='Leads' col3='Overdue Followups' col4='Priority' col5='Last Assigned To' />
-      </div>
+      </div> */}
 
       <div className="w-[100%] h-[50px]  mt-[10px] ">
         {clustersData.map((elem, key) => (

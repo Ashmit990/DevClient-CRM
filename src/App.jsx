@@ -15,6 +15,7 @@ import { DashboardLayout } from "./layouts/DashboardLayout";
         children: [
           {index: true, element: <DashboardLayout/>},
           {path: 'clusters', element: <ClusterLayout/>},
+          {path: 'dashboard', element: <DashboardLayout/>},
           { path: '*', element: <NotFoundPage /> },
         ]
       }
