@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ClustersTableHeader = ({ col1, col2, col3, col4, col5 }) => {
+export const ClustersColumns = ({ col1, col2, col3, col4, col5 }) => {
   return (
     <>
       <div className="grid grid-cols-5 bg-[#E7EDFB] text-[#8AB0F7] font-bold py-3 px-6 rounded-t-lg">

@@ -1,4 +1,4 @@
-[
+export const developersData =[
   {
     id: "dev1",
     name: "Dev1",

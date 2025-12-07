@@ -11,18 +11,23 @@ export const clustersData = [
         projectTitle: "LMS",
         priority: "High",
         followupDate: "2025-11-16",
-        status: "In Process",
+        status: "Completed",
         assignedDeveloper: "Dev1",
-        history: [{ date: "2025-11-01", actor: "Dev1", comment: "Explained project scope", status: "NFD" }]
+        history: [
+          { date: "2025-11-01", actor: "Dev1", comment: "Explained project scope", status: "NFD" },
+          { date: "2025-11-12", actor: "Dev1", comment: "Final Proposal Sent", status: "Completed" }
+        ]
       },
       {
         clientName: "Sarina",
         projectTitle: "Portfolio Website",
         priority: "Medium",
         followupDate: "2025-11-18",
-        status: "New Lead",
+        status: "In Process",
         assignedDeveloper: "Dev1",
-        history: []
+        history: [
+          { date: "2025-11-07", actor: "Dev1", comment: "Initial call done", status: "Followup" }
+        ]
       },
       {
         clientName: "Milan",
@@ -35,6 +40,7 @@ export const clustersData = [
       }
     ]
   },
+
   {
     clusterCode: "WDC-GV-24",
     clients: 3,
@@ -47,9 +53,12 @@ export const clustersData = [
         projectTitle: "E-Commerce App",
         priority: "High",
         followupDate: "2025-11-12",
-        status: "In Process",
+        status: "Completed",
         assignedDeveloper: "Dev2",
-        history: [{ date: "2025-11-02", actor: "Dev2", comment: "Sent requirements document", status: "NFD" }]
+        history: [
+          { date: "2025-11-02", actor: "Dev2", comment: "Sent requirements document", status: "NFD" },
+          { date: "2025-11-10", actor: "Dev2", comment: "Deal closed", status: "Completed" }
+        ]
       },
       {
         clientName: "Aisha",
@@ -71,6 +80,7 @@ export const clustersData = [
       }
     ]
   },
+
   {
     clusterCode: "BKT-TR-22",
     clients: 3,
@@ -85,16 +95,21 @@ export const clustersData = [
         followupDate: "2025-11-10",
         status: "Overdue",
         assignedDeveloper: "Dev3",
-        history: [{ date: "2025-10-30", actor: "Dev3", comment: "Discussed CRM flow", status: "NFD" }]
+        history: [
+          { date: "2025-10-30", actor: "Dev3", comment: "Discussed CRM flow", status: "NFD" }
+        ]
       },
       {
         clientName: "Krish",
         projectTitle: "Billing App",
         priority: "Medium",
         followupDate: "2025-11-19",
-        status: "In Process",
+        status: "Completed",
         assignedDeveloper: "Dev3",
-        history: []
+        history: [
+          { date: "2025-11-03", actor: "Dev3", comment: "Demo provided", status: "Followup" },
+          { date: "2025-11-15", actor: "Dev3", comment: "Deal finalized", status: "Completed" }
+        ]
       },
       {
         clientName: "Nikita",
@@ -108,8 +123,6 @@ export const clustersData = [
     ]
   },
 
-  // ----------- 7 more clusters -----------
-
   {
     clusterCode: "PKR-MN-20",
     clients: 2,
@@ -117,10 +130,30 @@ export const clustersData = [
     priority: "Medium",
     lastAssignedTo: "Dev4",
     leads: [
-      { clientName: "Liam", projectTitle: "Travel App", priority: "Medium", followupDate: "2025-11-21", status: "New Lead", assignedDeveloper: "Dev4", history: [] },
-      { clientName: "Olivia", projectTitle: "Food Delivery App", priority: "High", followupDate: "2025-11-19", status: "In Process", assignedDeveloper: "Dev4", history: [] }
+      {
+        clientName: "Liam",
+        projectTitle: "Travel App",
+        priority: "Medium",
+        followupDate: "2025-11-21",
+        status: "Completed",
+        assignedDeveloper: "Dev4",
+        history: [
+          { date: "2025-11-05", actor: "Dev4", comment: "Prototype shared", status: "Followup" },
+          { date: "2025-11-18", actor: "Dev4", comment: "Deal Closed", status: "Completed" }
+        ]
+      },
+      {
+        clientName: "Olivia",
+        projectTitle: "Food Delivery App",
+        priority: "High",
+        followupDate: "2025-11-19",
+        status: "In Process",
+        assignedDeveloper: "Dev4",
+        history: []
+      }
     ]
   },
+
   {
     clusterCode: "CTN-PL-19",
     clients: 3,
@@ -128,11 +161,39 @@ export const clustersData = [
     priority: "High",
     lastAssignedTo: "Dev5",
     leads: [
-      { clientName: "Emma", projectTitle: "Healthcare Portal", priority: "High", followupDate: "2025-11-15", status: "Overdue", assignedDeveloper: "Dev5", history: [] },
-      { clientName: "Noah", projectTitle: "Event Management", priority: "Medium", followupDate: "2025-11-18", status: "In Process", assignedDeveloper: "Dev5", history: [] },
-      { clientName: "Sophia", projectTitle: "Inventory App", priority: "Low", followupDate: "2025-11-22", status: "New Lead", assignedDeveloper: "Dev5", history: [] }
+      {
+        clientName: "Emma",
+        projectTitle: "Healthcare Portal",
+        priority: "High",
+        followupDate: "2025-11-15",
+        status: "Overdue",
+        assignedDeveloper: "Dev5",
+        history: []
+      },
+      {
+        clientName: "Noah",
+        projectTitle: "Event Management",
+        priority: "Medium",
+        followupDate: "2025-11-18",
+        status: "Completed",
+        assignedDeveloper: "Dev5",
+        history: [
+          { date: "2025-11-06", actor: "Dev5", comment: "Proposal sent", status: "Followup" },
+          { date: "2025-11-13", actor: "Dev5", comment: "Deal Closed", status: "Completed" }
+        ]
+      },
+      {
+        clientName: "Sophia",
+        projectTitle: "Inventory App",
+        priority: "Low",
+        followupDate: "2025-11-22",
+        status: "New Lead",
+        assignedDeveloper: "Dev5",
+        history: []
+      }
     ]
   },
+
   {
     clusterCode: "LDN-UK-18",
     clients: 2,
@@ -140,10 +201,30 @@ export const clustersData = [
     priority: "Medium",
     lastAssignedTo: "Dev6",
     leads: [
-      { clientName: "James", projectTitle: "Fitness Tracker", priority: "Medium", followupDate: "2025-11-17", status: "New Lead", assignedDeveloper: "Dev6", history: [] },
-      { clientName: "Isabella", projectTitle: "Recipe App", priority: "Low", followupDate: "2025-11-20", status: "In Process", assignedDeveloper: "Dev6", history: [] }
+      {
+        clientName: "James",
+        projectTitle: "Fitness Tracker",
+        priority: "Medium",
+        followupDate: "2025-11-17",
+        status: "Completed",
+        assignedDeveloper: "Dev6",
+        history: [
+          { date: "2025-11-03", actor: "Dev6", comment: "Initial discussion", status: "Followup" },
+          { date: "2025-11-12", actor: "Dev6", comment: "Deal Closed", status: "Completed" }
+        ]
+      },
+      {
+        clientName: "Isabella",
+        projectTitle: "Recipe App",
+        priority: "Low",
+        followupDate: "2025-11-20",
+        status: "In Process",
+        assignedDeveloper: "Dev6",
+        history: []
+      }
     ]
   },
+
   {
     clusterCode: "NYC-US-21",
     clients: 3,
@@ -151,11 +232,39 @@ export const clustersData = [
     priority: "High",
     lastAssignedTo: "Dev7",
     leads: [
-      { clientName: "Benjamin", projectTitle: "Finance App", priority: "High", followupDate: "2025-11-11", status: "Overdue", assignedDeveloper: "Dev7", history: [] },
-      { clientName: "Mia", projectTitle: "Social Media App", priority: "Medium", followupDate: "2025-11-19", status: "In Process", assignedDeveloper: "Dev7", history: [] },
-      { clientName: "Alexander", projectTitle: "Chat App", priority: "Low", followupDate: "2025-11-23", status: "New Lead", assignedDeveloper: "Dev7", history: [] }
+      {
+        clientName: "Benjamin",
+        projectTitle: "Finance App",
+        priority: "High",
+        followupDate: "2025-11-11",
+        status: "Overdue",
+        assignedDeveloper: "Dev7",
+        history: []
+      },
+      {
+        clientName: "Mia",
+        projectTitle: "Social Media App",
+        priority: "Medium",
+        followupDate: "2025-11-19",
+        status: "Completed",
+        assignedDeveloper: "Dev7",
+        history: [
+          { date: "2025-11-04", actor: "Dev7", comment: "Wireframing discussion", status: "Followup" },
+          { date: "2025-11-12", actor: "Dev7", comment: "Closed Deal", status: "Completed" }
+        ]
+      },
+      {
+        clientName: "Alexander",
+        projectTitle: "Chat App",
+        priority: "Low",
+        followupDate: "2025-11-23",
+        status: "New Lead",
+        assignedDeveloper: "Dev7",
+        history: []
+      }
     ]
   },
+
   {
     clusterCode: "SYD-AU-17",
     clients: 2,
@@ -163,10 +272,30 @@ export const clustersData = [
     priority: "Medium",
     lastAssignedTo: "Dev8",
     leads: [
-      { clientName: "Charlotte", projectTitle: "Travel Planner", priority: "Medium", followupDate: "2025-11-16", status: "New Lead", assignedDeveloper: "Dev8", history: [] },
-      { clientName: "William", projectTitle: "Photo Editor", priority: "Low", followupDate: "2025-11-21", status: "In Process", assignedDeveloper: "Dev8", history: [] }
+      {
+        clientName: "Charlotte",
+        projectTitle: "Travel Planner",
+        priority: "Medium",
+        followupDate: "2025-11-16",
+        status: "Completed",
+        assignedDeveloper: "Dev8",
+        history: [
+          { date: "2025-11-05", actor: "Dev8", comment: "Presentation shared", status: "Followup" },
+          { date: "2025-11-15", actor: "Dev8", comment: "Deal Closed", status: "Completed" }
+        ]
+      },
+      {
+        clientName: "William",
+        projectTitle: "Photo Editor",
+        priority: "Low",
+        followupDate: "2025-11-21",
+        status: "In Process",
+        assignedDeveloper: "Dev8",
+        history: []
+      }
     ]
   },
+
   {
     clusterCode: "TOR-CA-16",
     clients: 3,
@@ -174,11 +303,39 @@ export const clustersData = [
     priority: "High",
     lastAssignedTo: "Dev9",
     leads: [
-      { clientName: "Amelia", projectTitle: "Education App", priority: "High", followupDate: "2025-11-12", status: "Overdue", assignedDeveloper: "Dev9", history: [] },
-      { clientName: "Ethan", projectTitle: "Music Streaming", priority: "Medium", followupDate: "2025-11-19", status: "In Process", assignedDeveloper: "Dev9", history: [] },
-      { clientName: "Harper", projectTitle: "Todo App", priority: "Low", followupDate: "2025-11-22", status: "New Lead", assignedDeveloper: "Dev9", history: [] }
+      {
+        clientName: "Amelia",
+        projectTitle: "Education App",
+        priority: "High",
+        followupDate: "2025-11-12",
+        status: "Overdue",
+        assignedDeveloper: "Dev9",
+        history: []
+      },
+      {
+        clientName: "Ethan",
+        projectTitle: "Music Streaming",
+        priority: "Medium",
+        followupDate: "2025-11-19",
+        status: "Completed",
+        assignedDeveloper: "Dev9",
+        history: [
+          { date: "2025-11-05", actor: "Dev9", comment: "Feature discussion", status: "Followup" },
+          { date: "2025-11-13", actor: "Dev9", comment: "Closed Deal", status: "Completed" }
+        ]
+      },
+      {
+        clientName: "Harper",
+        projectTitle: "Todo App",
+        priority: "Low",
+        followupDate: "2025-11-22",
+        status: "New Lead",
+        assignedDeveloper: "Dev9",
+        history: []
+      }
     ]
   },
+
   {
     clusterCode: "BER-DE-15",
     clients: 2,
@@ -186,8 +343,27 @@ export const clustersData = [
     priority: "Medium",
     lastAssignedTo: "Dev10",
     leads: [
-      { clientName: "Lucas", projectTitle: "News App", priority: "Medium", followupDate: "2025-11-18", status: "New Lead", assignedDeveloper: "Dev10", history: [] },
-      { clientName: "Lily", projectTitle: "Fitness App", priority: "Low", followupDate: "2025-11-21", status: "In Process", assignedDeveloper: "Dev10", history: [] }
+      {
+        clientName: "Lucas",
+        projectTitle: "News App",
+        priority: "Medium",
+        followupDate: "2025-11-18",
+        status: "In Process",
+        assignedDeveloper: "Dev10",
+        history: []
+      },
+      {
+        clientName: "Lily",
+        projectTitle: "Fitness App",
+        priority: "Low",
+        followupDate: "2025-11-21",
+        status: "Completed",
+        assignedDeveloper: "Dev10",
+        history: [
+          { date: "2025-11-08", actor: "Dev10", comment: "Prototype shared", status: "Followup" },
+          { date: "2025-11-17", actor: "Dev10", comment: "Closed Deal", status: "Completed" }
+        ]
+      }
     ]
   }
 ];
