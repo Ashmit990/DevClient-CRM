@@ -5,6 +5,7 @@ import { calculateTotalDevelopers } from '../utils/calculateTotalDevelopers'
 import { developersData } from '../../data/developersData'
 import { countCompletedLeads } from '../utils/countCompletedLeads'
 import { calculateInProcessLeads } from '../utils/calculateInProcessLeads'
+import { countOverdueFollowups } from '../utils/countOverdueFollowups'
 
 
 
@@ -13,8 +14,9 @@ export const QuickOverview = () => {
   const totalDevelopers = calculateTotalDevelopers(developersData)
   const totalCompletedLeads = countCompletedLeads(clustersData)
   const totalInProcessLeads = calculateInProcessLeads(clustersData)
+  const totalOverdueFollowups = countOverdueFollowups(clustersData)
 
   return (
-    <div className='w-[93.5%] border-2 border-black h-[150px]'>{totalLeads} and {totalDevelopers} and {totalCompletedLeads} and {totalInProcessLeads}</div>
+    <div className='w-[93.5%] border-2 border-black h-[150px]'>{totalLeads} and {totalDevelopers} and {totalCompletedLeads} and {totalInProcessLeads} and {totalOverdueFollowups}</div>
   )
 }

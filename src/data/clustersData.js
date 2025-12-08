@@ -22,7 +22,7 @@ export const clustersData = [
         clientName: "Sarina",
         projectTitle: "Portfolio Website",
         priority: "Medium",
-        followupDate: "2025-11-18",
+        followupDate: "2025-12-18",
         status: "In Process",
         assignedDeveloper: "Dev1",
         history: [
