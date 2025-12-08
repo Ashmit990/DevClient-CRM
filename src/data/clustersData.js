@@ -10,8 +10,8 @@ export const clustersData = [
         clientName: "David",
         projectTitle: "LMS",
         priority: "High",
-        followupDate: "2025-11-16",
-        status: "Completed",
+        followupDate: "2025-12-08",
+        status: "In Process",
         assignedDeveloper: "Dev1",
         history: [
           { date: "2025-11-01", actor: "Dev1", comment: "Explained project scope", status: "NFD" },
@@ -22,7 +22,7 @@ export const clustersData = [
         clientName: "Sarina",
         projectTitle: "Portfolio Website",
         priority: "Medium",
-        followupDate: "2025-12-18",
+        followupDate: "2025-12-08",
         status: "In Process",
         assignedDeveloper: "Dev1",
         history: [
