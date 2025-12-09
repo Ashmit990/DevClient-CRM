@@ -29,7 +29,9 @@ export const QuickOverview = ({id, label, value, unit}) => {
   return (
     <>
       <div className='w-[252px] h-[150px] shadow-sm rounded-lg bg-white py-[20px] flex flex-col justify-between items-center'>
-        <p className='text-[#7A89A1] font-semibold'>{label}</p>
+        <p className='text-[#7A89A1] font-semibold text-[20px]'>{label}</p>
+        <p className='text-[#7A89A1] font-medium text-[60px]'>{value}{unit}</p>
+
       </div>
     </>
   )
