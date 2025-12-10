@@ -10,7 +10,7 @@ const ClusterLayout = () => {
         <Button label="Add Cluster" logo="+" />
       </div>
 
-      <div className="w-[95%] h-[500px] ">
+      <div className="w-[93.5%] h-[500px] ">
         <ClustersTable />
       </div>
     </>
