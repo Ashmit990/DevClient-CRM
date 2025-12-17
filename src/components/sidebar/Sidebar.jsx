@@ -9,7 +9,7 @@ export const Sidebar = () => {
   ];
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-[1200px]]">
       <div className="w-[200px] h-[739px] bg-[#3C5682] flex flex-col items-center pt-[150px] pr-[40px] rounded-tr-3xl">
         <div className="flex justify-center items-center w-[100px] h-[50px] mt-[-120px] ml-[20px]">
           <i className="fa-brands fa-leanpub fa-2xl" style={{ color: "#6499F3", fontSize: "80px" }}></i>

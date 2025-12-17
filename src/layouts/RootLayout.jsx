@@ -13,10 +13,10 @@ export const RootLayout = () => {
       <div className="fixed left-[200px] top-0 right-0">
         <Topbar />
       </div>
-
-      <div className="fixed ml-[253px] mt-[130px] p-5 pl-[28px] bg-[#F8F9FC] h-[700px] w-[85%] rounded-lg">
+      <div className="fixed ml-[253px] mt-[120px] p-5 pl-[28px] bg-[#F8F9FC] h-[calc(100vh-120px)] w-[85%] rounded-lg overflow-hidden">
         <Outlet />
       </div>
+
     </>
   );
 };

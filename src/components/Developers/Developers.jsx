@@ -4,7 +4,7 @@ export const Developers = ({ url, name, skills, score, completed, inprogress, em
   const scoreColor = score >= 80 ? 'bg-[#6DA2F9]' : 'bg-yellow-400'
 
   return (
-    <div className="w-[330px] h-[440px] rounded-[24px] bg-white border border-[#F3F6FF] shadow-[0_20px_50px_rgba(164,174,191,0.15)] hover:shadow-[0_20px_60px_rgba(109,162,249,0.2)] transition-all duration-500 flex flex-col overflow-hidden group">
+    <div className="w-[310px] h-[440px] rounded-[24px] bg-white border border-[#F3F6FF] shadow-[0_20px_50px_rgba(164,174,191,0.15)] hover:shadow-[0_20px_60px_rgba(109,162,249,0.2)] transition-all duration-500 flex flex-col overflow-hidden group mt-[30px]">
       
       <div className="p-4 flex flex-col items-center">
         <div className="relative">

@@ -46,5 +46,50 @@ export const developersData =[
     assignedClusters: [],
     performanceScore: 91,
     image: dev3Img
-  }
+  },
+    {
+    id: "dev1",
+    name: "Dev1",
+    email: "dev1@devclient.com",
+    phone: "+977-9800000001",
+    skills: ["React", "Laravel", "Node.js", "MySQL"],
+    active: true,
+    dateJoined: "2023-06-10",
+    totalLeadsHandled: 42,
+    completed: 12,
+    inProgress: 3,
+    assignedClusters: ["KTM - FA - 25", "KTM - KT - 27"],
+    performanceScore: 88,
+    image: dev1Img
+  },
+    {
+    id: "dev1",
+    name: "Dev1",
+    email: "dev1@devclient.com",
+    phone: "+977-9800000001",
+    skills: ["React", "Laravel", "Node.js", "MySQL"],
+    active: true,
+    dateJoined: "2023-06-10",
+    totalLeadsHandled: 42,
+    completed: 12,
+    inProgress: 3,
+    assignedClusters: ["KTM - FA - 25", "KTM - KT - 27"],
+    performanceScore: 88,
+    image: dev1Img
+  },
+    {
+    id: "dev1",
+    name: "Dev1",
+    email: "dev1@devclient.com",
+    phone: "+977-9800000001",
+    skills: ["React", "Laravel", "Node.js", "MySQL"],
+    active: true,
+    dateJoined: "2023-06-10",
+    totalLeadsHandled: 42,
+    completed: 12,
+    inProgress: 3,
+    assignedClusters: ["KTM - FA - 25", "KTM - KT - 27"],
+    performanceScore: 88,
+    image: dev1Img
+  },
 ]
