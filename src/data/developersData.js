@@ -1,3 +1,6 @@
+import dev1Img from "../assets/dev1.avif";
+import dev2Img from "../assets/dev2.avif";
+import dev3Img from "../assets/dev3.avif";
 export const developersData =[
   {
     id: "dev1",
@@ -12,7 +15,7 @@ export const developersData =[
     inProgress: 3,
     assignedClusters: ["KTM - FA - 25", "KTM - KT - 27"],
     performanceScore: 88,
-    image: "https://example.com/dev1.png"
+    image: dev1Img
   },
   {
     id: "dev2",
@@ -27,7 +30,7 @@ export const developersData =[
     inProgress: 5,
     assignedClusters: ["WDC - GV - 24"],
     performanceScore: 79,
-    image: "https://example.com/dev2.png"
+    image: dev2Img
   },
   {
     id: "dev3",
@@ -42,6 +45,6 @@ export const developersData =[
     inProgress: 0,
     assignedClusters: [],
     performanceScore: 91,
-    image: "https://example.com/dev3.png"
+    image: dev3Img
   }
 ]

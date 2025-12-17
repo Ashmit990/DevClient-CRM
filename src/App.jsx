@@ -4,6 +4,8 @@ import NotFoundPage from "./components/Errors/NotFoundPage";
 import React from 'react'
 import { RootLayout } from "./layouts/RootLayout";
 import { DashboardLayout } from "./layouts/DashboardLayout";
+import { DevelopersLayout } from "./layouts/DevelopersLayout";
+
 
  const App = () => {
 
@@ -16,6 +18,7 @@ import { DashboardLayout } from "./layouts/DashboardLayout";
           {index: true, element: <DashboardLayout/>},
           {path: 'clusters', element: <ClusterLayout/>},
           {path: 'dashboard', element: <DashboardLayout/>},
+          {path: 'developers', element: <DevelopersLayout/>},
           { path: '*', element: <NotFoundPage /> },
         ]
       }
