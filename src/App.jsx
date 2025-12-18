@@ -5,6 +5,7 @@ import React from 'react'
 import { RootLayout } from "./layouts/RootLayout";
 import { DashboardLayout } from "./layouts/DashboardLayout";
 import { DevelopersLayout } from "./layouts/DevelopersLayout";
+import { Demo } from "./layouts/demo";
 
 
  const App = () => {
@@ -18,7 +19,7 @@ import { DevelopersLayout } from "./layouts/DevelopersLayout";
           {index: true, element: <DashboardLayout/>},
           {path: 'clusters', element: <ClusterLayout/>},
           {path: 'dashboard', element: <DashboardLayout/>},
-          {path: 'developers', element: <DevelopersLayout/>},
+          {path: 'developers', element: <Demo/>},
           { path: '*', element: <NotFoundPage /> },
         ]
       }

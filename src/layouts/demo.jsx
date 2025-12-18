@@ -1,169 +1,145 @@
-import React from 'react';
-import { developersData } from '../data/developersData'; // Assuming this path is correct
+import React from 'react'
+import { developersData } from '../data/developersData'
+import { Header } from '../components/ui/Header';
+import { Button } from '../components/ui/Button';
 
-// --- Color Palette Reminder ---
-// Primary: #6DA2F9
-// Light Accent: #8AB0F7
-// Main Background: #F3F6FF (Used as the page background for depth)
-// Card Background: #FFFFFF (White for high contrast)
-// Muted/Border: #A4AEBF
+export const Demo = () => {
+  const developer = developersData[0];
 
-export const DeveloperTeamOverview = () => {
-    
-    if (!developersData || developersData.length === 0) {
-        return (
-            <div className="mx-auto w-[85%] py-12 text-center text-xl text-gray-500 bg-[#F3F6FF] min-h-screen rounded-lg">
-                No developer data available.
+  if (!developer) return <div>No data found.</div>;
+
+  return (
+    /* MAIN CONTAINER */
+    <div className="w-[1085px] h-[553px] mt-[-5px] bg-[#F8F9FC] font-sans flex flex-col overflow-hidden">
+
+      {/* TOP BAR */}
+      <div className="flex justify-between items-center w-full mb-4 shrink-0">
+        <Header title="← Back To Team" />
+        <Button label="Edit Profile" />
+      </div>
+
+      {/* MAIN GRID */}
+      <div className="grid grid-cols-12 gap-10 flex-1 min-h-0">
+
+        {/* LEFT COLUMN */}
+        <div className="col-span-4 h-full min-h-0">
+          <div className="bg-white rounded-[32px] p-8 shadow-[0_10px_40px_rgba(164,174,191,0.06)] border border-[#F3F6FF] flex flex-col items-center justify-center h-full overflow-hidden">
+
+            {/* AVATAR */}
+            <div className="relative mb-5 shrink-0">
+              <img
+                src={developer.image}
+                alt={developer.name}
+                className="w-28 h-28 rounded-full object-cover border-8 border-[#F8F9FC] shadow-md"
+              />
+              <div className="absolute bottom-1 right-1 w-5 h-5 bg-green-500 border-4 border-white rounded-full"></div>
             </div>
-        );
-    }
 
-    return (
-        // 85% Width Container, Centered. Main Background: #F3F6FF
-        <div className="mx-auto w-[85%] py-8 min-h-screen bg-[#F3F6FF]">
-            
-            {/* Top Bar / Global Search (Refined) */}
-            <div className="flex items-center justify-between mb-10 px-4 py-3 bg-white rounded-xl shadow-lg border border-[#A4AEBF]/20">
-                <div className="flex items-center w-full">
-                    <span className="text-gray-400 mr-3">🔍</span>
-                    <input 
-                        type="text" 
-                        placeholder="Search CRM globally..." 
-                        className="p-1 w-full bg-transparent text-gray-800 focus:outline-none"
-                    />
+            <h2 className="text-2xl font-black text-gray-800 leading-tight">
+              {developer.name}
+            </h2>
+            <p className="text-[#6DA2F9] text-sm font-bold mb-4">
+              {developer.email}
+            </p>
+
+            <span className="px-4 py-1.5 bg-green-100 text-green-600 text-[10px] font-black uppercase tracking-widest rounded-full">
+              Active
+            </span>
+
+            {/* INFO */}
+            <div className="w-full mt-6 pt-6 border-t border-[#F8F9FC] space-y-3 text-sm">
+              <div className="flex justify-between">
+                <span className="text-[#A4AEBF] font-black uppercase tracking-wider text-[10px]">
+                  Phone
+                </span>
+                <span className="text-gray-700 font-bold">
+                  {developer.phone}
+                </span>
+              </div>
+
+              <div className="flex justify-between">
+                <span className="text-[#A4AEBF] font-black uppercase tracking-wider text-[10px]">
+                  Joined
+                </span>
+                <span className="text-gray-700 font-bold">
+                  {developer.dateJoined}
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* RIGHT COLUMN */}
+        <div className="col-span-8 flex flex-col gap-4 h-full min-h-0">
+
+          {/* PRODUCTIVITY */}
+          <div className="bg-white rounded-[32px] p-6 shadow-[0_10px_40px_rgba(164,174,191,0.06)] border border-[#F3F6FF] shrink-0">
+            <p className="text-[#A4AEBF] text-[11px] font-black uppercase tracking-[2px] mb-4">
+              Productivity Score
+            </p>
+
+            <div className="flex items-center gap-8">
+              <h1 className="text-6xl font-black text-gray-800 leading-none">
+                {developer.performanceScore}
+                <span className="text-[#6DA2F9] text-3xl font-bold ml-1">%</span>
+              </h1>
+
+              <div className="flex-1">
+                <div className="h-3 bg-[#F8F9FC] rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-[#6DA2F9] rounded-full transition-all duration-700"
+                    style={{ width: `${developer.performanceScore}%` }}
+                  />
                 </div>
-                <div className="text-sm font-medium text-gray-600">Hi, Admin</div>
-                {/* Placeholder for Avatar */}
-                <div className="w-8 h-8 rounded-full bg-[#6DA2F9] ml-4"></div>
+              </div>
             </div>
+          </div>
 
+          {/* STATS */}
+          <div className="grid grid-cols-3 gap-4 shrink-0">
+            <StatCard label="Total Leads" value={developer.totalLeadsHandled} />
+            <StatCard label="Completed" value={developer.completed} color="text-green-500" />
+            <StatCard label="In Progress" value={developer.inProgress} color="text-yellow-500" />
+          </div>
 
-            {/* Main Title and Action Button */}
-            <div className="flex justify-between items-center mb-10 px-4">
-                <h1 className="text-4xl font-extrabold text-gray-800">Developer Team</h1>
-                <button className="px-6 py-2.5 bg-[#6DA2F9] text-white font-bold rounded-xl shadow-xl shadow-[#6DA2F9]/40 hover:bg-[#8AB0F7] transition duration-300 transform hover:-translate-y-0.5">
-                    + Add New Developer
-                </button>
-            </div>
+          {/* CLUSTERS (SCROLL AREA) */}
+          <div className="bg-white rounded-[32px] p-6 shadow-[0_10px_40px_rgba(164,174,191,0.06)] border border-[#F3F6FF] flex-1 min-h-0 flex flex-col">
+            <h3 className="font-black text-gray-800 text-base mb-4 shrink-0">
+              Assigned Clusters
+            </h3>
 
-            {/* Filter and Sort Controls (Cleaned up, higher contrast buttons) */}
-            <div className="flex flex-wrap items-center justify-between gap-4 mb-10 px-4">
-                
-                <input type="text" placeholder="Search by name, skill, or ID..." 
-                       className="p-3 border border-[#A4AEBF] rounded-xl w-72 focus:ring-2 focus:ring-[#8AB0F7] focus:border-[#6DA2F9] transition bg-white shadow-sm"/>
-                
-                <div className="flex gap-3">
-                    {/* Status Filter */}
-                    <select className="p-3 border border-[#A4AEBF] rounded-xl focus:ring-2 focus:ring-[#8AB0F7] focus:border-[#6DA2F9] appearance-none bg-white font-medium text-gray-700 shadow-sm">
-                        <option>Filter Status</option>
-                        <option>Active</option>
-                        <option>Inactive</option>
-                    </select>
-                    
-                    {/* Skill Filter */}
-                    <select className="p-3 border border-[#A4AEBF] rounded-xl focus:ring-2 focus:ring-[#8AB0F7] focus:border-[#6DA2F9] appearance-none bg-white font-medium text-gray-700 shadow-sm">
-                        <option>Filter Skill</option>
-                        <option>React</option>
-                        <option>Laravel</option>
-                    </select>
-                    
-                    {/* Sort Dropdown */}
-                    <select className="p-3 border border-[#A4AEBF] rounded-xl focus:ring-2 focus:ring-[#8AB0F7] focus:border-[#6DA2F9] appearance-none bg-white font-medium text-gray-700 shadow-sm">
-                        <option>Sort by Performance</option>
-                        <option>Sort by Date Joined</option>
-                    </select>
+            <div className="grid grid-cols-2 gap-3 overflow-y-auto pr-2">
+              {developer.assignedClusters.map((cluster, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-4 px-4 py-3 bg-[#F8F9FC] rounded-xl border border-[#F3F6FF]"
+                >
+                  <div className="w-10 h-10 bg-[#6DA2F9]/10 rounded-lg flex items-center justify-center">
+                    📍
+                  </div>
+                  <span className="font-bold text-gray-700 text-sm">
+                    {cluster}
+                  </span>
                 </div>
+              ))}
             </div>
-
-            {/* Developers Card Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4">
-                
-                {/* Loop through developersData */}
-                {developersData.map((dev) => (
-                    <div key={dev.id} 
-                         // Card Background: White. Stronger Shadow/Lift
-                         className="bg-white rounded-2xl shadow-2xl shadow-[#A4AEBF]/10 transform hover:shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out border border-gray-100">
-                        
-                        <div className="p-6">
-                            
-                            {/* Profile Info / Status Badge */}
-                            <div className="flex justify-between items-start mb-4">
-                                <div className="flex items-center">
-                                    <img className="h-12 w-12 rounded-full object-cover border-3 border-white shadow-lg mr-3" src={dev.image} alt={dev.name}/>
-                                    <div>
-                                        <h2 className="text-xl font-bold text-gray-900">{dev.name}</h2>
-                                        {/* Primary Accent Text: #6DA2F9 */}
-                                        <p className="text-sm font-medium text-[#6DA2F9]">{dev.email}</p>
-                                    </div>
-                                </div>
-                                
-                                {/* Status Badge (Higher Contrast) */}
-                                <span className={`${dev.active ? 'bg-green-500 text-white' : 'bg-red-500 text-white'} px-3 py-1 text-xs font-bold rounded-full shadow-md mt-1`}>
-                                    {dev.active ? 'Active' : 'Inactive'}
-                                </span>
-                            </div>
-                            
-                            {/* Performance Score Section */}
-                            <div className="mt-4 pt-4 border-t border-gray-100">
-                                <p className="text-sm font-semibold text-gray-700 mb-2">Performance Score:</p>
-                                <div className="flex items-center space-x-4">
-                                    <span className="text-3xl font-extrabold text-gray-900">{dev.performanceScore}%</span>
-                                    {/* Progress Bar */}
-                                    <div className="w-full h-2 rounded-full bg-[#A4AEBF]/40">
-                                         <div style={{ width: `${dev.performanceScore}%` }} 
-                                              className={`${dev.performanceScore >= 80 ? 'bg-green-500' : 'bg-yellow-500'} h-2 rounded-full transition-all duration-500`}>
-                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Completed / In Progress Stats */}
-                            <div className="flex justify-between text-center mt-6 p-3 bg-[#F8F9FC] rounded-lg border border-[#A4AEBF]/10">
-                                <div className="w-1/2 border-r border-[#A4AEBF]/30">
-                                    <p className="text-xs text-gray-500 uppercase">Completed</p>
-                                    <p className="text-3xl font-extrabold text-green-600 mt-1">{dev.completed}</p>
-                                </div>
-                                <div className="w-1/2">
-                                    <p className="text-xs text-gray-500 uppercase">In Progress</p>
-                                    <p className="text-3xl font-extrabold text-yellow-600 mt-1">{dev.inProgress}</p>
-                                </div>
-                            </div>
-
-                            {/* Skills - Use Light Accent Background */}
-                            <div className="mt-6">
-                                <p className="text-sm font-semibold text-gray-700 mb-2">Key Skills:</p>
-                                <div className="flex flex-wrap gap-2">
-                                    {dev.skills.slice(0, 3).map((skill, index) => (
-                                        <span key={index}
-                                              className="px-3 py-1.5 text-xs font-semibold bg-[#8AB0F7]/40 text-gray-800 rounded-lg hover:bg-[#8AB0F7]/60 transition">
-                                            {skill}
-                                        </span>
-                                    ))}
-                                    {dev.skills.length > 3 && (
-                                        <span className="text-xs text-gray-500 self-center">
-                                            +{dev.skills.length - 3}
-                                        </span>
-                                    )}
-                                </div>
-                            </div>
-
-                        </div>
-                        
-                        {/* Footer/Actions - Primary Accent Link: #6DA2F9 */}
-                        <div className="p-4 border-t border-gray-100 flex justify-between bg-[#F8F9FC] rounded-b-2xl">
-                            <a href={`/developer/${dev.id}`} className="text-sm font-bold text-[#6DA2F9] hover:text-[#8AB0F7] transition">
-                                View Full Profile &rarr;
-                            </a>
-                            <button className={`${dev.active ? 'text-red-500 hover:text-red-700' : 'text-green-500 hover:text-green-700'} text-sm font-bold transition`}>
-                                {dev.active ? 'Deactivate' : 'Activate'}
-                            </button>
-                        </div>
-
-                    </div>
-                ))}
-                
-            </div>
+          </div>
 
         </div>
-    );
-};
+      </div>
+    </div>
+  )
+}
+
+/* STAT CARD */
+const StatCard = ({ label, value, color = "text-gray-800" }) => (
+  <div className="bg-white rounded-[24px] py-6 px-4 shadow-sm border border-[#F3F6FF] flex flex-col items-center justify-center">
+    <p className="text-[#A4AEBF] text-[10px] font-black uppercase tracking-widest mb-2">
+      {label}
+    </p>
+    <p className={`text-3xl font-black ${color}`}>
+      {value}
+    </p>
+  </div>
+);
