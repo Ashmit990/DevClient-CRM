@@ -1,12 +1,18 @@
 import React from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import { developersData } from '../data/developersData'
-import { Header } from '../components/ui/Header';
-import { Button } from '../components/ui/Button';
+import { Header } from '../components/ui/Header'
+import { Button } from '../components/ui/Button'
 
-export const Demo = () => {
-  const developer = developersData[0];
+export const DeveloperProfile = () => {
+  const { id } = useParams()
+  const navigate = useNavigate()
 
-  if (!developer) return <div>No data found.</div>;
+  const developer = developersData.find(dev => dev.id === id)
+
+  if (!developer) {
+    return <div className="p-10">Developer not found.</div>
+  }
 
   return (
     /* MAIN CONTAINER */
@@ -14,8 +20,17 @@ export const Demo = () => {
 
       {/* TOP BAR */}
       <div className="flex justify-between items-center w-full mb-4 shrink-0">
-        <Header title="← Back To Team" />
-        <Button label="Edit Profile" />
+        <div
+          onClick={() => navigate('/developers')}
+          className="cursor-pointer"
+        >
+          <Header title="← Back To Team" />
+        </div>
+
+        <Button
+          label="Edit Profile"
+          onClick={() => navigate(`/developers/${id}/edit`)}
+        />
       </div>
 
       {/* MAIN GRID */}
@@ -32,41 +47,29 @@ export const Demo = () => {
                 alt={developer.name}
                 className="w-28 h-28 rounded-full object-cover border-8 border-[#F8F9FC] shadow-md"
               />
-              <div className="absolute bottom-1 right-1 w-5 h-5 bg-green-500 border-4 border-white rounded-full"></div>
+              {developer.active && (
+                <div className="absolute bottom-1 right-1 w-5 h-5 bg-green-500 border-4 border-white rounded-full" />
+              )}
             </div>
 
             <h2 className="text-2xl font-black text-gray-800 leading-tight">
               {developer.name}
             </h2>
+
             <p className="text-[#6DA2F9] text-sm font-bold mb-4">
               {developer.email}
             </p>
 
-            <span className="px-4 py-1.5 bg-green-100 text-green-600 text-[10px] font-black uppercase tracking-widest rounded-full">
-              Active
+            <span className={`px-4 py-1.5 text-[10px] font-black uppercase tracking-widest rounded-full
+              ${developer.active ? 'bg-green-100 text-green-600' : 'bg-gray-200 text-gray-600'}`}>
+              {developer.active ? 'Active' : 'Inactive'}
             </span>
 
             {/* INFO */}
             <div className="w-full mt-6 pt-6 border-t border-[#F8F9FC] space-y-3 text-sm">
-              <div className="flex justify-between">
-                <span className="text-[#A4AEBF] font-black uppercase tracking-wider text-[10px]">
-                  Phone
-                </span>
-                <span className="text-gray-700 font-bold">
-                  {developer.phone}
-                </span>
-              </div>
-
-              <div className="flex justify-between">
-                <span className="text-[#A4AEBF] font-black uppercase tracking-wider text-[10px]">
-                  Joined
-                </span>
-                <span className="text-gray-700 font-bold">
-                  {developer.dateJoined}
-                </span>
-              </div>
+              <InfoRow label="Phone" value={developer.phone} />
+              <InfoRow label="Joined" value={developer.dateJoined} />
             </div>
-
           </div>
         </div>
 
@@ -103,26 +106,30 @@ export const Demo = () => {
             <StatCard label="In Progress" value={developer.inProgress} color="text-yellow-500" />
           </div>
 
-          {/* CLUSTERS (SCROLL AREA) */}
+          {/* CLUSTERS */}
           <div className="bg-white rounded-[32px] p-6 shadow-[0_10px_40px_rgba(164,174,191,0.06)] border border-[#F3F6FF] flex-1 min-h-0 flex flex-col">
             <h3 className="font-black text-gray-800 text-base mb-4 shrink-0">
               Assigned Clusters
             </h3>
 
             <div className="grid grid-cols-2 gap-3 overflow-y-auto pr-2">
-              {developer.assignedClusters.map((cluster, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-4 px-4 py-3 bg-[#F8F9FC] rounded-xl border border-[#F3F6FF]"
-                >
-                  <div className="w-10 h-10 bg-[#6DA2F9]/10 rounded-lg flex items-center justify-center">
-                    📍
+              {developer.assignedClusters.length === 0 ? (
+                <p className="text-sm text-gray-400">No clusters assigned</p>
+              ) : (
+                developer.assignedClusters.map((cluster, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-4 px-4 py-3 bg-[#F8F9FC] rounded-xl border border-[#F3F6FF]"
+                  >
+                    <div className="w-10 h-10 bg-[#6DA2F9]/10 rounded-lg flex items-center justify-center">
+                      📍
+                    </div>
+                    <span className="font-bold text-gray-700 text-sm">
+                      {cluster}
+                    </span>
                   </div>
-                  <span className="font-bold text-gray-700 text-sm">
-                    {cluster}
-                  </span>
-                </div>
-              ))}
+                ))
+              )}
             </div>
           </div>
 
@@ -132,7 +139,18 @@ export const Demo = () => {
   )
 }
 
-/* STAT CARD */
+/* SMALL COMPONENTS */
+const InfoRow = ({ label, value }) => (
+  <div className="flex justify-between">
+    <span className="text-[#A4AEBF] font-black uppercase tracking-wider text-[10px]">
+      {label}
+    </span>
+    <span className="text-gray-700 font-bold">
+      {value}
+    </span>
+  </div>
+)
+
 const StatCard = ({ label, value, color = "text-gray-800" }) => (
   <div className="bg-white rounded-[24px] py-6 px-4 shadow-sm border border-[#F3F6FF] flex flex-col items-center justify-center">
     <p className="text-[#A4AEBF] text-[10px] font-black uppercase tracking-widest mb-2">
@@ -142,4 +160,4 @@ const StatCard = ({ label, value, color = "text-gray-800" }) => (
       {value}
     </p>
   </div>
-);
+)

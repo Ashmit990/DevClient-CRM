@@ -1,7 +1,7 @@
 import React from "react";
 
-export const Header = ({title,onclick}) => {
+export const Header = ({title}) => {
   return (
-    <div onclick={onclick} className="text-[#455776] font-bold text-[25px] cursor-pointer">{title}</div>
+    <div className="text-[#455776] font-bold text-[25px] cursor-pointer">{title}</div>
   );
 };

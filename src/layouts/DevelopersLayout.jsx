@@ -11,7 +11,18 @@ export const DevelopersLayout = () => {
       <div className="flex-1 overflow-y-auto mt-6">
         <div className="flex flex-wrap gap-[78px]">
           {developersData.map((data, i) => 
-          <Developers key={i} url={data.image} name={data.name} skills={data.skills} score={data.performanceScore} completed={data.completed} inprogress={data.inProgress} email={data.email} />
+         <Developers
+  key={data.id}
+  id={data.id}
+  url={data.image}
+  name={data.name}
+  skills={data.skills}
+  score={data.performanceScore}
+  completed={data.completed}
+  inprogress={data.inProgress}
+  email={data.email}
+/>
+
           )}
         </div>
       </div>
