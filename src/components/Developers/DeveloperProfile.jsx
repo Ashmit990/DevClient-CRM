@@ -1,0 +1,146 @@
+import React from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import { Header } from '../ui/Header'
+import { Button } from '../ui/Button'
+import { InfoRow } from './InfowRow'
+import { StatCard } from './StatCard'
+
+export const DeveloperProfile = ({data}) => {
+  const { id } = useParams()
+  const navigate = useNavigate()
+
+  const developer = data.find(dev => dev.id === id)
+
+  if (!developer) {
+    return <div className="p-10">Developer not found.</div>
+  }
+
+  return (
+    /* MAIN CONTAINER */
+    <div className="w-[1085px] h-[553px] mt-[-5px] bg-[#F8F9FC] font-sans flex flex-col overflow-hidden">
+
+      {/* TOP BAR */}
+      <div className="flex justify-between items-center w-full mb-4 shrink-0">
+        <div
+          onClick={() => navigate('/developers')}
+          className="cursor-pointer"
+        >
+          <Header title="← Back To Team" />
+        </div>
+
+        <Button
+          label="Edit Profile"
+          onClick={() => navigate(`/developers/${id}/edit`)}
+        />
+      </div>
+
+      {/* MAIN GRID */}
+      <div className="grid grid-cols-12 gap-10 flex-1 min-h-0">
+
+        {/* LEFT COLUMN */}
+        <div className="col-span-4 h-full min-h-0">
+          <div className="bg-white rounded-[32px] p-8 shadow-[0_10px_40px_rgba(164,174,191,0.06)] border border-[#F3F6FF] flex flex-col items-center justify-center h-full overflow-hidden">
+
+            {/* AVATAR */}
+            <div className="relative mb-5 shrink-0">
+              <img
+                src={developer.image}
+                alt={developer.name}
+                className="w-28 h-28 rounded-full object-cover border-8 border-[#F8F9FC] shadow-md"
+              />
+              {developer.active && (
+                <div className="absolute bottom-1 right-1 w-5 h-5 bg-green-500 border-4 border-white rounded-full" />
+              )}
+            </div>
+
+            <h2 className="text-2xl font-black text-gray-800 leading-tight">
+              {developer.name}
+            </h2>
+
+            <p className="text-[#6DA2F9] text-sm font-bold mb-4">
+              {developer.email}
+            </p>
+
+            <span className={`px-4 py-1.5 text-[10px] font-black uppercase tracking-widest rounded-full
+              ${developer.active ? 'bg-green-100 text-green-600' : 'bg-gray-200 text-gray-600'}`}>
+              {developer.active ? 'Active' : 'Inactive'}
+            </span>
+
+            {/* INFO */}
+            <div className="w-full mt-6 pt-6 border-t border-[#F8F9FC] space-y-3 text-sm">
+              <InfoRow label="Phone" value={developer.phone} />
+              <InfoRow label="Joined" value={developer.dateJoined} />
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT COLUMN */}
+        <div className="col-span-8 flex flex-col gap-4 h-full min-h-0">
+
+          {/* PRODUCTIVITY */}
+          <div className="bg-white rounded-[32px] p-6 shadow-[0_10px_40px_rgba(164,174,191,0.06)] border border-[#F3F6FF] shrink-0">
+            <p className="text-[#A4AEBF] text-[11px] font-black uppercase tracking-[2px] mb-4">
+              Productivity Score
+            </p>
+
+            <div className="flex items-center gap-8">
+              <h1 className="text-6xl font-black text-gray-800 leading-none">
+                {developer.performanceScore}
+                <span className="text-[#6DA2F9] text-3xl font-bold ml-1">%</span>
+              </h1>
+
+              <div className="flex-1">
+                <div className="h-3 bg-[#F8F9FC] rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-[#6DA2F9] rounded-full transition-all duration-700"
+                    style={{ width: `${developer.performanceScore}%` }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* STATS */}
+          <div className="grid grid-cols-3 gap-4 shrink-0">
+            <StatCard label="Total Leads" value={developer.totalLeadsHandled} />
+            <StatCard label="Completed" value={developer.completed} color="text-green-500" />
+            <StatCard label="In Progress" value={developer.inProgress} color="text-yellow-500" />
+          </div>
+
+          {/* CLUSTERS */}
+          <div className="bg-white rounded-[32px] p-6 shadow-[0_10px_40px_rgba(164,174,191,0.06)] border border-[#F3F6FF] flex-1 min-h-0 flex flex-col">
+            <h3 className="font-black text-gray-800 text-base mb-4 shrink-0">
+              Assigned Clusters
+            </h3>
+
+            <div className="grid grid-cols-2 gap-3 overflow-y-auto pr-2">
+              {developer.assignedClusters.length === 0 ? (
+                <p className="text-sm text-gray-400">No clusters assigned</p>
+              ) : (
+                developer.assignedClusters.map((cluster, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-4 px-4 py-3 bg-[#F8F9FC] rounded-xl border border-[#F3F6FF]"
+                  >
+                    <div className="w-10 h-10 bg-[#6DA2F9]/10 rounded-lg flex items-center justify-center">
+                      📍
+                    </div>
+                    <span className="font-bold text-gray-700 text-sm">
+                      {cluster}
+                    </span>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
+
+
+
