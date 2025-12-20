@@ -1,5 +1,6 @@
 export const clustersData = [
   {
+    id: "KTM-FA-25",
     clusterCode: "KTM-FA-25",
     clients: 3,
     overdueFollowups: 1,
@@ -42,6 +43,7 @@ export const clustersData = [
   },
 
   {
+    id: "WDC-GV-24",
     clusterCode: "WDC-GV-24",
     clients: 3,
     overdueFollowups: 0,
@@ -82,6 +84,7 @@ export const clustersData = [
   },
 
   {
+    id: "BKT-TR-22",
     clusterCode: "BKT-TR-22",
     clients: 3,
     overdueFollowups: 1,
@@ -124,6 +127,7 @@ export const clustersData = [
   },
 
   {
+    id: "PKR-MN-20",
     clusterCode: "PKR-MN-20",
     clients: 2,
     overdueFollowups: 0,
@@ -155,6 +159,7 @@ export const clustersData = [
   },
 
   {
+    id: "CTN-PL-19",
     clusterCode: "CTN-PL-19",
     clients: 3,
     overdueFollowups: 1,
@@ -195,6 +200,7 @@ export const clustersData = [
   },
 
   {
+    id: "LDN-UK-18",
     clusterCode: "LDN-UK-18",
     clients: 2,
     overdueFollowups: 0,
@@ -226,6 +232,7 @@ export const clustersData = [
   },
 
   {
+    id: "NYC-US-21",
     clusterCode: "NYC-US-21",
     clients: 3,
     overdueFollowups: 2,
@@ -266,6 +273,7 @@ export const clustersData = [
   },
 
   {
+    id: "SYD-AU-17",
     clusterCode: "SYD-AU-17",
     clients: 2,
     overdueFollowups: 0,
@@ -297,6 +305,7 @@ export const clustersData = [
   },
 
   {
+    id: "TOR-CA-16",
     clusterCode: "TOR-CA-16",
     clients: 3,
     overdueFollowups: 1,
@@ -337,6 +346,7 @@ export const clustersData = [
   },
 
   {
+    id: "BER-DE-15",
     clusterCode: "BER-DE-15",
     clients: 2,
     overdueFollowups: 0,

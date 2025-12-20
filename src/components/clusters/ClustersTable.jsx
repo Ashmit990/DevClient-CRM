@@ -13,6 +13,7 @@ export const ClustersTable = () => {
       <div className="w-[100%] h-[500px] mt-[10px] overflow-auto ">
         {clustersData.map((elem, key) => (
           <ClustersRows
+            id={elem.id}
             key={key}
             val1={elem.clusterCode}
             val2={elem.clients}

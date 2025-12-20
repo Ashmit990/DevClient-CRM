@@ -7,6 +7,7 @@ import { DashboardLayout } from "./layouts/DashboardLayout";
 import { DevelopersLayout } from "./layouts/DevelopersLayout";
 
 import DeveloperProfileLayout from "./layouts/DeveloperProfileLayout";
+import { ClusterProfileLayout } from "./layouts/ClusterProfileLayout";
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
         { path: "clusters", element: <ClusterLayout /> },
         { path: "developers", element: <DevelopersLayout /> },
         { path: "developers/:id", element: <DeveloperProfileLayout /> },
+        { path: "clusters/:id", element: <ClusterProfileLayout /> },
         { path: "*", element: <NotFoundPage /> },
       ],
     },
