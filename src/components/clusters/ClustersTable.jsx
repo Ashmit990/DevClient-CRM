@@ -4,6 +4,7 @@ import { ClustersRows } from "./ClustersRows";
 import { clustersData } from "../../data/clustersData";
 
 export const ClustersTable = () => {
+  
   return (
     <>
       <div className="w-[100%] h-[50px]  mt-[27px] ">
