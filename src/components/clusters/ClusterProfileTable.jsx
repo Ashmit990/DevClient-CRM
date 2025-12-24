@@ -11,7 +11,7 @@ export const ClusterProfileTable = ({ cluster, id }) => {
 
       <div className="w-[100%] h-[500px] mt-[10px] overflow-auto">
         {cluster.leads.map((elem, key) => (
-          <ClusterProfileRows key={key} val1={id} val2={elem.clientName} val3={elem.projectTitle} val4={elem.priority} val5={elem.status} val6={elem.assignedDeveloper} />
+          <ClusterProfileRows clusterId={id} leadId={elem.id} key={key} val1={id} val2={elem.clientName} val3={elem.projectTitle} val4={elem.priority} val5={elem.status} val6={elem.assignedDeveloper} />
         ))}
       </div>
     </>
