@@ -21,7 +21,7 @@ export const ClusterProfileRows = ({
   else if (val5 === "Overdue") statusStyle = "text-purple-300 font-bold";
 
   return (
-    <div className="grid grid-cols-[1.2fr,2fr,2.5fr,1.2fr,1.5fr,1.2fr,1fr] bg-white py-4 px-6 mb-2 rounded-lg hover:bg-[#F3F6FF] transition">
+    <div className="grid grid-cols-[1.2fr,2fr,2.5fr,1.2fr,1.5fr,1.2fr,1fr] bg-white py-4 px-6 mb-2 rounded-lg hover:bg-[#F3F6FF] text-[#455776] transition font-bold">
       <p>{val1}</p>
       <p>{val2}</p>
       <p>{val3}</p>

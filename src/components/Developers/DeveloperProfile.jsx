@@ -6,10 +6,10 @@ import { InfoRow } from './InfowRow'
 import { StatCard } from './StatCard'
 
 export const DeveloperProfile = ({ data }) => {
-  const { id } = useParams()
+  const { developerId } = useParams()
   const navigate = useNavigate()
 
-  const developer = data.find(dev => dev.id === id)
+  const developer = data.find(dev => dev.id === developerId)
 
   if (!developer) {
     return <div className="p-10">Developer not found.</div>
@@ -21,7 +21,7 @@ export const DeveloperProfile = ({ data }) => {
         <div onClick={() => navigate('/developers')} className="cursor-pointer">
           <Header title="← Back To Team" />
         </div>
-        <Button label="Edit Profile" onClick={() => navigate(`/developers/${id}/edit`)} />
+        <Button label="Edit Profile" onClick={() => navigate(`/developers/${developerId}/edit`)} />
       </div>
 
       <div className="grid grid-cols-12 gap-10 flex-1 min-h-0">
